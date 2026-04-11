@@ -7,7 +7,7 @@
 3. Click **"Insert Sample Data"** button on login screen (first time only)
 4. Login with credentials below
 
-## Login Credentials
+## Sample Login Credentials
 
 **Admin**
 - Username: admin
