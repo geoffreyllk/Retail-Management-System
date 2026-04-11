@@ -1,0 +1,140 @@
+/* admin/AdminDashboard.css */
+
+.top-bar {
+    -fx-max-width: Infinity;
+}
+
+/* performance */
+.performance-percentage {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-line-spacing: 0;
+    -fx-text-fill: -light-grey;
+}
+
+.percentage-increase {
+    -fx-text-fill: -green;
+}
+
+.percentage-decrease {
+    -fx-text-fill: -red;
+}
+
+
+/* recent transactions section */
+.recent-transactions-vbox {
+    -fx-padding: 0px;
+}
+
+.recent-transactions-vbox HBox{
+    -fx-padding: 15px 15px 0px 15px;
+}
+
+.recent-transactions-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -medium-grey;
+    -fx-padding: 0;
+    -fx-text-alignment: left;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.table-view:focused {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -lightest-grey;
+    -fx-padding: 4px 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: -lightest-grey;
+}
+
+.table-view .column-header .label {}
+.table-row-cell {}
+.table-cell {}
+
+.table-row-cell:hover {
+    -fx-background-color: #FAFAFA;
+}
+
+/* scrollbar */
+.table-view .scroll-bar:vertical {
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    -fx-opacity: 0;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-opacity: 0;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-opacity: 0;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+    -fx-pref-width: 0;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+/* top selling items */
+
+.card-header {
+    -fx-border-color: -lighter-grey;
+    -fx-padding: 0 0 5px 0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.card-title{
+    -fx-text-fill: -medium-grey;
+}
+
+.top-card-item{
+    -fx-padding: 5px 0 0 0;
+}
+
+/* bar chart */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: -blue;
+    -fx-background-radius: 2px 2px 0 0;
+}
+
+.chart-horizontal-grid-lines,
+.chart-vertical-grid-lines,
+.chart-vertical-zero-line {
+    -fx-stroke: transparent;
+}
+
+.axis-tick-mark,
+.axis-minor-tick-mark {
+    -fx-stroke: transparent;
+}
+
+.axis {
+    -fx-tick-label-fill: #888;
+    -fx-tick-label-font-size: 10px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.axis:bottom {
+    -fx-border-color: -blue;
+    -fx-border-width: 1px 0 0 0;
+}

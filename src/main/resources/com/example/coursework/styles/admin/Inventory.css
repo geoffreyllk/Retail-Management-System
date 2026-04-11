@@ -1,0 +1,47 @@
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: -light-grey;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.total-value{
+    -fx-text-fill: -green;
+}
+
+.total-stock {
+    -fx-text-fill: -blue;
+}
+
+.low-stock {
+    -fx-text-fill: -orange;
+}
+
+.out-of-stock{
+    -fx-text-fill: -red;
+}
+
+
+/* overlay */
+
+
+.product-image {
+    -fx-border-color: -light-grey;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+.overlay-select-image {
+    -fx-background-color: -blue;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-cursor: hand;
+}
+
+.overlay-select-image:hover {
+    -fx-background-color: derive(-blue, +30%);
+}

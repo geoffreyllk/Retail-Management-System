@@ -1,0 +1,53 @@
+/* admin/AdminLayout.css */
+
+.root {
+    -fx-background-color: #F6F8FA;
+}
+
+/* sidebar Vbox */
+.vBox {
+    -fx-background-color: -black;
+    -fx-padding: 24px 6px 24px 6px;
+}
+
+.welcome-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: -white;
+    -fx-padding: 0 15px 15px 15px;
+    -fx-max-width: Infinity;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* sidebar buttons */
+.sidebar-button {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: -white;
+    -fx-font-size: 15px;
+    -fx-padding: 8px 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-border-insets: 0;
+}
+
+.icon {
+    -fx-fill: -white;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: derive(-black, +10%);
+}
+
+.sidebar-button.active {
+    -fx-background-color: -red;
+}
+
+.sidebar-button.active:hover {
+    -fx-background-color: derive(-red, -10%);
+}
+
+.sidebar-button:pressed {
+    -fx-background-color: -black;
+    -fx-border-color: transparent;
+}

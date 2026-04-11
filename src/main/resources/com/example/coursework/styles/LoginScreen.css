@@ -1,0 +1,62 @@
+* {
+    -white: #ffffff;
+    -black: #1d181c;
+    -lightest-grey: #F5F5F5;
+    -lighter-grey: #E4E4E4;
+    -light-grey: #d3d3d3;
+    -red: #FF2F3E; /* accent colour */
+    -blue: #0C7ADE;
+}
+
+.root-vbox {
+    -fx-background-color: -black;
+    -fx-padding: 30px 20px;
+    -fx-spacing: 30px;
+}
+
+.content-vbox {
+    -fx-spacing: 20px;
+    -fx-alignment: CENTER;
+}
+
+.header {
+    -fx-text-fill: -white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.input {
+    -fx-background-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-text-fill: -white;
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: -white;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 2px 10px;
+}
+
+.login-button {
+    -fx-background-color: -red;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-text-fill: -white;
+    -fx-font-size: 14px;
+    -fx-padding: 6px 12px;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+}
+
+.login-vbox {
+    -fx-spacing: 20px;
+    -fx-alignment: CENTER;
+}
+
+.login-button:hover {
+    -fx-background-color: derive(-red, -10%);
+}
+
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}

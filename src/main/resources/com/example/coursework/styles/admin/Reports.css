@@ -1,0 +1,183 @@
+.sub-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -black;
+    -fx-line-spacing: 0;
+    -fx-padding: 0 0 0 4px;
+}
+
+/* Chart Styling */
+.chart {
+    -fx-padding: 10px 10px 10px 20px;
+    -fx-background-color: -white;
+    -fx-border-color: -lighter-grey;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.chart-title {
+    -fx-text-fill: -black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* X and Y axis */
+.axis {
+    -fx-tick-label-fill: -black;
+    -fx-font-size: 11px;
+}
+
+.axis-label {
+    -fx-text-fill: -black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* grid lines */
+.chart-vertical-grid-lines {
+    -fx-stroke: -lighter-grey;
+    -fx-stroke-dash-array: 5 5;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: -lighter-grey;
+    -fx-stroke-dash-array: 5 5;
+}
+
+/* Chart Line */
+.chart-series-line {
+    -fx-stroke: -red;
+    -fx-stroke-width: 3px;
+    -fx-effect: null;
+}
+
+/* chart data points */
+.chart-line-symbol {
+    -fx-background-color: -red, -white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.chart-line-symbol:hover {
+    -fx-background-color: -medium-grey, -white;
+    -fx-cursor: hand;
+}
+
+.axis .tick-label {
+    -fx-text-fill: -black;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-legend {
+   -fx-background-color:  transparent;
+}
+
+.chart-legend-item{
+    -fx-text-fill: -black;
+}
+
+
+/* top selling products */
+.product-box {
+    -fx-background-color: -white;
+    -fx-padding: 15px;
+    -fx-spacing: 4px;
+    -fx-border-color: -lighter-grey;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.table-view {
+    -fx-border-width: 0;
+}
+
+.table-cell {
+    -fx-padding: 6px;
+}
+
+.table-row-cell {
+    -fx-border-width: 0;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:vertical {
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    -fx-opacity: 0;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-opacity: 0;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-opacity: 0;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+    -fx-pref-width: 0;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+/* pie chart */
+.chart-vbox .chart {
+    -fx-padding: 0;
+}
+
+.chart-pie {
+    -fx-start-angle: 90;
+    -fx-padding: 0;
+}
+.chart-pie-label {
+    -fx-fill: black;
+    -fx-font-size: 9px;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: -black;
+    -fx-fill: -black;
+}
+
+/* pie slice colors */
+.chart-pie.data0 {
+    -fx-pie-color: -red;
+    -fx-border-color: -red;
+}
+
+.chart-pie.data1 {
+    -fx-pie-color: -blue;
+    -fx-border-color: -blue;
+}
+
+.chart-pie.data2 {
+    -fx-pie-color: -green;
+    -fx-border-color: -green;
+}
+
+.chart-pie.data3 {
+    -fx-pie-color: -yellow;
+    -fx-border-color: -yellow;
+}
+
+.chart-pie.data4 {
+    -fx-pie-color: -orange;
+    -fx-border-color: -orange;
+}
+
+.chart-pie.data5 {
+    -fx-pie-color: -light-blue;
+    -fx-border-color: -light-blue;
+}

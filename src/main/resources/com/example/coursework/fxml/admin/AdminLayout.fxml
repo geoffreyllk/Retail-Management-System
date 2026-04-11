@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.layout.Region?>
+<BorderPane fx:id="bp" prefHeight="720.0" prefWidth="1280.0" minHeight="600" minWidth="1024" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../../styles/admin/AdminLayout.css" fx:controller="com.example.coursework.controllers.admin.AdminLayoutController">
+    <left>
+        <VBox styleClass="vBox" minWidth="180" prefHeight="720.0" prefWidth="220.0" BorderPane.alignment="CENTER" viewOrder="-1.0">
+            <Label  fx:id="welcomeLabel" styleClass="welcome-label" text="Welcome, Admin!" />
+            <Button fx:id="dashboardBtn" styleClass="sidebar-button" mnemonicParsing="false" onMouseClicked="#dashboard" maxWidth="Infinity" text="Dashboard"/>
+            <Button fx:id="inventoryBtn" styleClass="sidebar-button" mnemonicParsing="false" onMouseClicked="#inventory_management" maxWidth="Infinity" text="Inventory"/>
+            <Button fx:id="salesBtn" styleClass="sidebar-button" mnemonicParsing="false" onMouseClicked="#sale_management" maxWidth="Infinity" text="Sales"/>
+            <Button fx:id="userBtn" styleClass="sidebar-button" mnemonicParsing="false" onMouseClicked="#user_management" maxWidth="Infinity" text="Users"/>
+            <Button fx:id="reportsBtn" styleClass="sidebar-button" mnemonicParsing="false" onMouseClicked="#reports" maxWidth="Infinity" text="Report"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button fx:id="settingsBtn" styleClass="sidebar-button" mnemonicParsing="false" onMouseClicked="#settings" maxWidth="Infinity" text="Settings"/>
+            <Button fx:id="logoutBtn" styleClass="sidebar-button, logout-button" mnemonicParsing="false" onMouseClicked="#logout" maxWidth="Infinity" text="Logout"/>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane fx:id="ap" prefWidth="1060" prefHeight="720" BorderPane.alignment="CENTER" />
+    </center>
+</BorderPane>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.layout.StackPane?>
+<StackPane stylesheets="@../../styles/admin/Settings.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.controllers.admin.SettingsController">
+    <VBox fx:id="mainContent" styleClass="root-Vbox" maxHeight="Infinity" maxWidth="Infinity">
+        <VBox spacing="15">
+            <HBox styleClass="title-hbox" alignment="CENTER_LEFT">
+                <Label styleClass="title" text="Settings" />
+            </HBox>
+        </VBox>
+
+        <GridPane styleClass="grid-layout" vgap="20" hgap="20" maxWidth="Infinity">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="60" halignment="RIGHT"/>
+                <ColumnConstraints percentWidth="40" halignment="RIGHT"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="50"/>
+                <RowConstraints percentHeight="40"/>
+            </rowConstraints>
+
+            <VBox styleClass="box" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label styleClass="box-label" text="SYSTEM PREFERENCES" maxWidth="Infinity"/>
+                <GridPane styleClass="box-content" vgap="10" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" halignment="RIGHT" hgrow="ALWAYS" />
+                    </columnConstraints>
+
+                    <Label text="Store Name:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="editStoreName" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Currency:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="editCurrency" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Low stock threshold:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="editLowStock" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Include tax in prices:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="offTaxButton" text="OFF" styleClass="tax-btn, off-btn" onAction="#offTax"/>
+                        <Button fx:id="onTaxButton" text="ON" styleClass="tax-btn, on-btn" onAction="#onTax"/>
+                    </HBox>
+
+                    <Label text="Tax Rate:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="editTaxRate" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </GridPane>
+            </VBox>
+
+            <VBox styleClass="box" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label styleClass="box-label" text="ADMIN PROFILE" maxWidth="Infinity"/>
+                <GridPane styleClass="box-content" vgap="10" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" halignment="RIGHT" hgrow="ALWAYS" />
+                    </columnConstraints>
+
+                    <Label text="User ID:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Label fx:id="userIdLabel" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity" disable="true"/>
+
+                    <Label text="Username:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Label fx:id="usernameLabel" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity" disable="true"/>
+
+                    <Label text="Role:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Label text="Admin" styleClass="overlay-text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" maxWidth="Infinity" disable="true"/>
+
+                    <Label text="Password:" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="passwordField" styleClass="overlay-text-field" HBox.hgrow="ALWAYS" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                </GridPane>
+            </VBox>
+
+            <VBox styleClass="box" HBox.hgrow="ALWAYS" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <HBox alignment="CENTER">
+                    <Label styleClass="box-label" text="PRODUCT CATEGORIES" maxWidth="Infinity"/>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="+ Add Category" styleClass="add-btn" onAction="#showAddCategoryOverlay"/>
+                </HBox>
+                <TableView fx:id="categoryTable" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <columns>
+                        <TableColumn fx:id="categoryName" text="Category" />
+                        <TableColumn fx:id="categoryAction" text="Action" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox styleClass="box" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <HBox alignment="CENTER">
+                    <Label styleClass="box-label" text="PAYMENT METHODS" maxWidth="Infinity" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="+ Add Payment" styleClass="add-btn" onAction="#showAddPaymentOverlay"/>
+                </HBox>
+                <TableView fx:id="paymentTable" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <columns>
+                        <TableColumn fx:id="paymentName" text="Payment Method" />
+                        <TableColumn fx:id="paymentAction" text="Action" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <Button fx:id="applyChangesButton" text="Apply Changes" styleClass="apply-btn" onAction="#applyChanges" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        </GridPane>
+    </VBox>
+
+    <VBox fx:id="overlay" styleClass="overlay" visible="false" managed="false">
+        <HBox>
+            <Label fx:id="overlayTitle" styleClass="title" />
+        </HBox>
+        <GridPane vgap="10" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" />
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label fx:id="overlayLabel" styleClass="overlay-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="overlayTextField" styleClass="overlay-text-field" promptText="Enter name" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        </GridPane>
+        <HBox spacing="15">
+            <Button fx:id="deleteButton" text="Delete" styleClass="overlay-delete" onAction="#deleteOverlayItem" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Cancel" styleClass="overlay-cancel" onAction="#hideOverlay" />
+            <Button text="Confirm" styleClass="overlay-save" onAction="#saveOverlay" />
+        </HBox>
+    </VBox>
+</StackPane>

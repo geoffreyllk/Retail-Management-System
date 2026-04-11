@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.chart.BarChart?>
+<VBox styleClass="root-Vbox" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@../../styles/admin/AdminDashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.controllers.admin.AdminDashboardController">
+   <HBox styleClass="title-hbox">
+      <Label styleClass="title" text="Dashboard"/>
+   </HBox>
+
+   <HBox alignment="CENTER" styleClass="box-row">
+      <VBox styleClass="box" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+         <Label styleClass="box-label" text="Today's Sales" />
+         <HBox maxWidth="Infinity" alignment="BOTTOM_LEFT">
+            <Label fx:id="todaySales" styleClass="box-value" text="RM1,000" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="todaySalesPercentage" styleClass="performance-percentage" text="-%"/>
+         </HBox>
+      </VBox>
+      <VBox styleClass="box" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+         <Label styleClass="box-label" text="Today's Transactions" />
+         <HBox maxWidth="Infinity" alignment="BOTTOM_LEFT">
+            <Label fx:id="todayTransactions" styleClass="box-value" text="45" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="todayTransactionsPercentage" styleClass="performance-percentage" text="-%"/>
+         </HBox>
+      </VBox>
+      <VBox styleClass="box" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+         <Label styleClass="box-label" text="Average Spend per Order" />
+         <HBox maxWidth="Infinity" alignment="BOTTOM_LEFT">
+            <Label fx:id="averageSpend" styleClass="box-value" text="RM22.20" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="averageSpendPercentage" styleClass="performance-percentage" text="-%"/>
+         </HBox>
+      </VBox>
+      <VBox styleClass="box" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+         <Label styleClass="box-label" text="This Month's Sales" />
+         <HBox maxWidth="Infinity" alignment="BOTTOM_LEFT">
+            <Label fx:id="thisMonthSales" styleClass="box-value" text="RM20,000" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="thisMonthSalesPercentage" styleClass="performance-percentage" text="-%"/>
+         </HBox>
+      </VBox>
+   </HBox>
+
+   <GridPane hgap="20">
+       <columnConstraints>
+           <ColumnConstraints percentWidth="60" hgrow="ALWAYS" />
+           <ColumnConstraints percentWidth="40" halignment="RIGHT" />
+       </columnConstraints>
+
+      <VBox styleClass="box, recent-transactions-vbox" GridPane.columnIndex="0" GridPane.rowIndex="0">
+         <HBox alignment="CENTER_RIGHT">
+            <Label styleClass="recent-transactions-label" text="Recent Transactions" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button styleClass="link" text="View All Transactions" onAction="#viewTransactions" />
+         </HBox>
+         <TableView fx:id="transactionTable" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+            <columnResizePolicy>
+               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+               <TableColumn fx:id="transactionIdColumn" text="ID" />
+               <TableColumn fx:id="cashierUsernameColumn" text="CASHIER" />
+                <TableColumn fx:id="totalAmountColumn" text="TOTAL" />
+               <TableColumn fx:id="transactionDateColumn" text="DATE" />
+            </columns>
+         </TableView>
+      </VBox>
+
+       <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" spacing="20">
+           <VBox fx:id="lowStockContainer" styleClass="box">
+               <HBox styleClass="card-header" maxWidth="Infinity">
+                   <Label styleClass="card-title" text="LOW IN STOCK" />
+                   <Region HBox.hgrow="ALWAYS"/>
+                   <Label styleClass="card-title" text="STOCK" />
+               </HBox>
+               <VBox VBox.vgrow="ALWAYS" spacing="3">
+                   <HBox styleClass="card-item, top-card-item" maxWidth="Infinity">
+                       <Label fx:id="lowStockName1" styleClass="card-name" />
+                       <Region HBox.hgrow="ALWAYS"/>
+                       <Label fx:id="lowStockQty1" styleClass="card-qty" />
+                   </HBox>
+                   <HBox styleClass="card-item" maxWidth="Infinity">
+                       <Label fx:id="lowStockName2" styleClass="card-name" />
+                       <Region HBox.hgrow="ALWAYS"/>
+                       <Label fx:id="lowStockQty2" styleClass="card-qty" />
+                   </HBox>
+                   <HBox styleClass="card-item" maxWidth="Infinity">
+                       <Label fx:id="lowStockName3" styleClass="card-name" />
+                       <Region HBox.hgrow="ALWAYS"/>
+                       <Label fx:id="lowStockQty3" styleClass="card-qty" />
+                   </HBox>
+               </VBox>
+           </VBox>
+
+           <VBox styleClass="box">
+               <HBox styleClass="card-header" maxWidth="Infinity">
+                   <Label styleClass="card-title" text="HOT PRODUCTS" />
+                   <Region HBox.hgrow="ALWAYS"/>
+                   <Label styleClass="card-title" text="SOLD" />
+               </HBox>
+               <VBox VBox.vgrow="ALWAYS" spacing="3">
+                   <HBox styleClass="card-item, top-card-item" maxWidth="Infinity">
+                       <Label fx:id="topSellingName1" styleClass="card-name" />
+                       <Region HBox.hgrow="ALWAYS"/>
+                       <Label fx:id="topSellingQty1" styleClass="card-qty" />
+                   </HBox>
+                   <HBox styleClass="card-item" maxWidth="Infinity">
+                       <Label fx:id="topSellingName2" styleClass="card-name" />
+                       <Region HBox.hgrow="ALWAYS"/>
+                       <Label fx:id="topSellingQty2" styleClass="card-qty" />
+                   </HBox>
+                   <HBox styleClass="card-item" maxWidth="Infinity">
+                       <Label fx:id="topSellingName3" styleClass="card-name" />
+                       <Region HBox.hgrow="ALWAYS"/>
+                       <Label fx:id="topSellingQty3" styleClass="card-qty" />
+                   </HBox>
+               </VBox>
+           </VBox>
+           <VBox styleClass="box">
+               <BarChart fx:id="weeklySalesChart">
+                   <xAxis>
+                       <CategoryAxis/>
+                   </xAxis>
+                   <yAxis>
+                       <NumberAxis fx:id="yAxis"/>
+                   </yAxis>
+               </BarChart>
+               <HBox alignment="BOTTOM_RIGHT">
+                   <Label styleClass="card-title" text="REVENUE (PAST 7 DAYS)" />
+                   <Region HBox.hgrow="ALWAYS"/>
+                   <Button text="View Report" styleClass="link" onAction="#viewReport" />
+               </HBox>
+           </VBox>
+       </VBox>
+   </GridPane>
+</VBox>

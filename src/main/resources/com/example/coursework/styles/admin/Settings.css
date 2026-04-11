@@ -1,0 +1,103 @@
+/* root styles */
+.grid-layout {
+    -fx-padding: 0 0 40px 0;
+}
+
+.overlay {
+    -fx-max-width: 400px;
+    -fx-max-height: 180px;
+}
+
+.overlay-text-field {
+    -fx-background-color: -lightest-grey;
+    -fx-background-radius: 3px 3px 0 0;
+}
+
+.add-btn {
+    -fx-padding: 6px 18px;
+}
+
+.edit-btn {
+    -fx-padding: 4px 18px;
+    -fx-background-color: -blue;
+    -fx-text-fill: -white;
+}
+
+.apply-btn {
+    -fx-padding: 6px 18px;
+    -fx-background-color: -green;
+    -fx-text-fill: -white;
+    -fx-font-weight: bold;
+}
+
+.apply-btn:hover {
+    -fx-background-color: derive(-green,+30%);
+}
+
+.apply-btn:pressed {
+    -fx-background-color: -green;
+}
+
+/* admin profile */
+.box {
+    -fx-padding: 20px;
+}
+
+.box-label {
+    -fx-border-color: -lighter-grey;
+    -fx-padding: 0 0 5px 0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-font-size: 12px;
+}
+
+.box-content {
+    -fx-padding: 6px 0 0 0;
+}
+
+
+/* system preferences */
+.tax-btn {
+    -fx-border-color: -lighter-grey;
+    -fx-border-width: 1px;
+    -fx-padding: 3px 20px;
+    -fx-border-radius: 3px;
+}
+
+.tax-btn.off-btn:hover {
+    -fx-border-color: -red;
+}
+
+.tax-btn.on-btn:hover {
+    -fx-border-color: -green;
+}
+
+.tax-btn.on-btn.active {
+    -fx-border-color: -green;
+    -fx-background-color: -green;
+    -fx-text-fill: -white;
+}
+
+.tax-btn.off-btn.active {
+    -fx-border-color: -red;
+    -fx-background-color: -red;
+    -fx-text-fill: -white;
+}
+
+
+/* table */
+.table-view {
+    -fx-border-width: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-visibility: hidden;
+    -fx-padding: -2em;
+}
+
+.table-row-cell {
+    -fx-font-size: 13px;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+}
+

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Separator?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.StackPane?>
+<StackPane prefHeight="720" prefWidth="1280" minHeight="600" minWidth="1024" maxHeight="Infinity" maxWidth="Infinity" stylesheets="@../../styles/cashier/CashierDashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.controllers.cashier.CashierDashboardController">
+    <VBox fx:id="mainContent" styleClass="root-Vbox">
+        <HBox styleClass="title-hbox" alignment="CENTER">
+            <Label styleClass="title" text="Retail System" />
+            <TextField fx:id="searchField" promptText="Search product..." styleClass="filter-btn, search-field"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="cashierNameLabel" styleClass="cashier-label" />
+            <Button text="Logout" styleClass="logout-btn" onAction="#logout" />
+        </HBox>
+        <HBox styleClass="root-hbox" VBox.vgrow="ALWAYS">
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <!-- horizontal slideshow of categories -->
+                <ScrollPane styleClass="category-scroll" minHeight="60" hbarPolicy="NEVER" vbarPolicy="NEVER" fitToHeight="true">
+                    <HBox fx:id="categoryContainer" styleClass="category-container" spacing="10" />
+                </ScrollPane>
+
+                <VBox styleClass="box" VBox.vgrow="ALWAYS">
+                    <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="products-scroll" VBox.vgrow="ALWAYS">
+                        <GridPane fx:id="productsGrid" styleClass="products-grid" hgap="15" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="33.3" />
+                                <ColumnConstraints percentWidth="33.3" />
+                                <ColumnConstraints percentWidth="33.3" />
+                            </columnConstraints>
+                        </GridPane>
+                    </ScrollPane>
+                </VBox>
+            </VBox>
+
+            <VBox HBox.hgrow="NEVER" prefWidth="400" styleClass="box">
+                <HBox spacing="8" styleClass="datetime-container" alignment="CENTER">
+                    <Label fx:id="currentDateLabel" styleClass="datetime-label"/>
+                    <Label fx:id="currentTimeLabel" styleClass="datetime-label"/>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button text="Clear Order" styleClass="clear-order-btn" onAction="#clearOrder" />
+                </HBox>
+
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="cart-scroll">
+                    <VBox fx:id="cartContainer" spacing="10" styleClass="cart-container" />
+                </ScrollPane>
+
+                <VBox spacing="10" styleClass="cart-summary">
+                    <VBox styleClass="cart-details" spacing="5">
+                        <HBox>
+                            <Label styleClass="subtotal-label" text="Subtotal" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label fx:id="subtotalLabel" styleClass="subtotal-amount" text="RM0.00" />
+                        </HBox>
+                        <HBox>
+                            <Label fx:id="taxText" styleClass="tax-label" text="Tax" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label fx:id="taxLabel" styleClass="tax-amount" text="RM0.00" />
+                        </HBox>
+                    </VBox>
+                    <HBox>
+                        <Label styleClass="total-label" text="Total" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="totalLabel" styleClass="total-amount" text="RM0.00" />
+                    </HBox>
+                    <Button text="Checkout" styleClass="checkout-btn" onAction="#checkout" maxWidth="Infinity" />
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- Receipt Overlay -->
+    <VBox fx:id="receiptOverlay" styleClass="overlay" visible="false" managed="false" alignment="CENTER">
+        <VBox styleClass="receipt-container" spacing="15" VBox.vgrow="ALWAYS">
+            <Label styleClass="receipt-title" text="RECEIPT" />
+
+            <TextArea fx:id="receiptTextArea" styleClass="receipt-text" editable="false" wrapText="true" VBox.vgrow="ALWAYS" />
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button text="Close" styleClass="overlay-cancel" onAction="#closeReceipt"/>
+                <Button text="Print Receipt" styleClass="overlay-cancel" onAction="#printReceipt"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>

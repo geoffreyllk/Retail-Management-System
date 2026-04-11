@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<VBox fx:id="mainContent" styleClass="root-Vbox" maxHeight="Infinity" maxWidth="Infinity" stylesheets="@../../styles/admin/Reports.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.controllers.admin.ReportsController">
+    <HBox styleClass="title-hbox">
+        <Label styleClass="title" text="Report" />
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="dateRangeFilter" promptText="Date Range" styleClass="filter-btn, filter-combo"/>
+    </HBox>
+
+    <!-- stat cards -->
+    <HBox styleClass="box-row">
+        <VBox styleClass="box" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label styleClass="box-label" text="Total Revenue" />
+            <Label fx:id="totalRevenueLabel" styleClass="box-value" text="RM" />
+        </VBox>
+        <VBox styleClass="box" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label styleClass="box-label" text="Transactions" />
+            <Label fx:id="transactionlabel" styleClass="box-value" text="0" />
+        </VBox>
+        <VBox styleClass="box" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label styleClass="box-label" text="Average Transaction Value" />
+            <Label fx:id="averageTransactionLabel" styleClass="box-value" text="RM0" />
+        </VBox>
+        <VBox styleClass="box" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+            <Label styleClass="box-label" text="Items Sold" />
+            <Label fx:id="itemsSoldLabel" styleClass="box-value" text="RM0" />
+        </VBox>
+    </HBox>
+
+    <!-- Revenue over time chart -->
+    <LineChart fx:id="revenueChart">
+        <xAxis>
+            <CategoryAxis fx:id="xAxis"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis"/>
+        </yAxis>
+    </LineChart>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <VBox HBox.hgrow="NEVER" styleClass="chart-vbox">
+            <PieChart fx:id="categoryPieChart" VBox.vgrow="ALWAYS" prefWidth="300"/>
+        </VBox>
+
+        <VBox styleClass="product-box" HBox.hgrow="ALWAYS">
+            <!-- filter Bar -->
+            <HBox spacing="10" styleClass="filter-bar" alignment="BASELINE_CENTER">
+                <Label styleClass="sub-title" text="Top Selling Products" />
+                <Region HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="categoryFilter" promptText="Category" styleClass="filter-btn, filter-combo" />
+            </HBox>
+
+            <!-- top-selling products table -->
+            <TableView fx:id="productTable" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="rowNumberColumn" text="#" />
+                    <TableColumn fx:id="nameColumn" text="Product" />
+                    <TableColumn fx:id="qtySoldColumn" text="Sold" />
+                    <TableColumn fx:id="revenueColumn" text="Revenue" />
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

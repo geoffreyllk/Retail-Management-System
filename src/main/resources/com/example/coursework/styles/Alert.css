@@ -1,0 +1,74 @@
+/* colour var */
+* {
+    -white: #ffffff;
+    -black: #1d181c;
+    -lightest-grey: #F5F5F5;
+    -lighter-grey: #E4E4E4;
+    -red: #FF2F3E; /* accent colour */
+    -blue: #0C7ADE;
+}
+
+.dialog-pane {
+    -fx-background-color: -black;
+    -fx-border-color: -lighter-grey;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-text-fill: -white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: -black;
+    -fx-border-radius: 8px 8px 0 0;
+    -fx-border-color: -lighter-grey;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 14px 18px;
+    -fx-font-size: 15px;
+    -fx-text-fill: -white;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: -white;
+}
+
+.myDialog .content {
+    -fx-wrap-text: true;
+}
+
+.dialog-pane .content.label {
+    -fx-font-size: 13px;
+    -fx-text-fill: -white;
+    -fx-padding: 12px 18px;
+    -fx-wrap-text: true;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #F0F0F0;
+    -fx-text-fill: -black;
+    -fx-padding: 6px 15px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: derive(#F0F0F0, -10%);
+}
+
+.dialog-pane .button:default {
+    -fx-background-color: -red;
+    -fx-text-fill: -white;
+}
+
+.dialog-pane .button:default:hover {
+    -fx-background-color: derive(-red, -10%);
+}
+
+.myDialog {
+    -fx-background-color: -black;
+}
+
+.myDialog .header-panel .graphic-container {
+    -fx-opacity: 0;
+}
+
+
