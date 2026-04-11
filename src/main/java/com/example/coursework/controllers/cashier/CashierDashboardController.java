@@ -32,6 +32,7 @@ import java.util.*;
 public class CashierDashboardController {
 
     @FXML private VBox mainContent;
+    @FXML private Label storeNameLabel;
     @FXML private Label cashierNameLabel;
     @FXML private TextField searchField;
     @FXML private HBox categoryContainer;
@@ -64,6 +65,8 @@ public class CashierDashboardController {
 
     @FXML
     public void initialize() {
+        storeNameLabel.setText(ConfigManager.getStoreName());
+
         currentUser = AppCache.getCurrentUser();
         cashierNameLabel.setText("Welcome back, " + currentUser.getUsername() + "!");
 

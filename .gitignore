@@ -5,6 +5,7 @@ target/
 
 # Database
 retailstore.db
+config.properties
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

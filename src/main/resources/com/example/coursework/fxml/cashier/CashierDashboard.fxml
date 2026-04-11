@@ -17,7 +17,7 @@
 <StackPane prefHeight="720" prefWidth="1280" minHeight="600" minWidth="1024" maxHeight="Infinity" maxWidth="Infinity" stylesheets="@../../styles/cashier/CashierDashboard.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.controllers.cashier.CashierDashboardController">
     <VBox fx:id="mainContent" styleClass="root-Vbox">
         <HBox styleClass="title-hbox" alignment="CENTER">
-            <Label styleClass="title" text="Retail System" />
+            <Label fx:id="storeNameLabel" styleClass="title" text="Retail System" />
             <TextField fx:id="searchField" promptText="Search product..." styleClass="filter-btn, search-field"/>
             <Region HBox.hgrow="ALWAYS" />
             <Label fx:id="cashierNameLabel" styleClass="cashier-label" />

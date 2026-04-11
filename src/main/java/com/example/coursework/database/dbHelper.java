@@ -113,6 +113,7 @@ public class dbHelper {
                     "('P008', 'Kit Kat', 'Candy', 2.50, 30), " +
                     "('P009', 'Instant Noodles', 'Food', 2.20, 35), " +
                     "('P010', 'Canned Tuna', 'Food', 5.50, 50)");
+            System.out.println("Products Inserted.");
         }
     }
 
@@ -141,6 +142,7 @@ public class dbHelper {
                     "('TXN056', 'alice', '2026-04-05 10:15:00', 41.50, 'Card'), " + "('TXN057', 'john', '2026-04-06 13:30:00', 58.00, 'QR Pay'), " + "('TXN058', 'jane', '2026-04-06 15:00:00', 33.50, 'Cash'), " +
                     "('TXN059', 'bob', '2026-04-07 11:45:00', 79.00, 'Card'), " + "('TXN060', 'alice', '2026-04-07 16:30:00', 46.50, 'QR Pay'), " + "('TXN061', 'john', '2026-04-08 09:15:00', 52.00, 'Cash'), " +
                     "('TXN062', 'jane', '2026-04-08 12:00:00', 68.50, 'Card'), " + "('TXN063', 'bob', '2026-04-08 14:30:00', 37.00, 'QR Pay'), " + "('TXN064', 'alice', '2026-04-08 17:00:00', 83.50, 'Cash')");
+            System.out.println("Transactions inserted.");
         }
     }
 
@@ -151,7 +153,7 @@ public class dbHelper {
                     "('TXN001', 'P003', 'Mineral Water', 2, 1.50, 3.00), ('TXN001', 'P007', 'Snickers', 5, 2.50, 12.50), " +
                     "('TXN002', 'P009', 'Instant Noodles', 3, 2.20, 6.60), ('TXN002', 'P005', \"Lay's Chips\", 1, 4.50, 4.50), ('TXN002', 'P003', 'Mineral Water', 1, 1.50, 1.50), " + "('TXN003', 'P001', 'Coca Cola', 4, 3.50, 14.00), ('TXN003', 'P008', 'Kit Kat', 6, 2.50, 15.00), ('TXN003', 'P010', 'Canned Tuna', 3, 5.50, 16.50), " + "('TXN004', 'P002', 'Pepsi', 2, 3.50, 7.00), ('TXN004', 'P004', 'Orange Juice', 1, 4.00, 4.00), ('TXN004', 'P006', 'Cheetos', 2, 3.80, 7.60), " +
                     "('TXN005', 'P005', \"Lay's Chips\", 2, 4.50, 9.00), ('TXN005', 'P009', 'Instant Noodles', 3, 2.20, 6.60), ('TXN005', 'P001', 'Coca Cola', 1, 3.50, 3.50), " + "('TXN006', 'P007', 'Snickers', 4, 2.50, 10.00), ('TXN006', 'P003', 'Mineral Water', 3, 1.50, 4.50), ('TXN006', 'P010', 'Canned Tuna', 1, 5.50, 5.50), " + "('TXN007', 'P008', 'Kit Kat', 8, 2.50, 20.00), ('TXN007', 'P002', 'Pepsi', 3, 3.50, 10.50), ('TXN007', 'P004', 'Orange Juice', 2, 4.00, 8.00), " +
-                    "('TXN008', 'P001', 'Coca Cola', 1, 3.50, 3.50), ('TXN008', 'P006', 'Cheetos', 2, 3.80, 7.60), ('TXN008', 'P003', 'Mineral Water', 1, 1.50, 1.50), " + "('TXN009', 'P009', 'Instant Noodles', 5, 2.20, 11.00), ('TXN009', 'P007', 'Snickers', 7, 2.50, 17.50), ('TXN009', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), " + "('TXN010', 'P004', 'Orange Juice', 2, 4.00, 8.00), ('TXN010', 'P002', 'Pepsi', 2, 3.50, 7.00), ('TXN010', 'P008', 'Kit Kat', 2, 2.50, 5.00)" +
+                    "('TXN008', 'P001', 'Coca Cola', 1, 3.50, 3.50), ('TXN008', 'P006', 'Cheetos', 2, 3.80, 7.60), ('TXN008', 'P003', 'Mineral Water', 1, 1.50, 1.50), " + "('TXN009', 'P009', 'Instant Noodles', 5, 2.20, 11.00), ('TXN009', 'P007', 'Snickers', 7, 2.50, 17.50), ('TXN009', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), " + "('TXN010', 'P004', 'Orange Juice', 2, 4.00, 8.00), ('TXN010', 'P002', 'Pepsi', 2, 3.50, 7.00), ('TXN010', 'P008', 'Kit Kat', 2, 2.50, 5.00), " +
                     "('TXN011', 'P002', 'Pepsi', 4, 3.50, 14.00), ('TXN011', 'P007', 'Snickers', 6, 2.50, 15.00), ('TXN011', 'P009', 'Instant Noodles', 8, 2.20, 17.60), " + "('TXN012', 'P001', 'Coca Cola', 3, 3.50, 10.50), ('TXN012', 'P005', \"Lay's Chips\", 2, 4.50, 9.00), ('TXN012', 'P008', 'Kit Kat', 5, 2.50, 12.50), " + "('TXN013', 'P003', 'Mineral Water', 5, 1.50, 7.50), ('TXN013', 'P010', 'Canned Tuna', 2, 5.50, 11.00), ('TXN013', 'P004', 'Orange Juice', 3, 4.00, 12.00), " +
                     "('TXN014', 'P006', 'Cheetos', 4, 3.80, 15.20), ('TXN014', 'P007', 'Snickers', 8, 2.50, 20.00), ('TXN014', 'P002', 'Pepsi', 2, 3.50, 7.00), " + "('TXN015', 'P009', 'Instant Noodles', 3, 2.20, 6.60), ('TXN015', 'P001', 'Coca Cola', 2, 3.50, 7.00), ('TXN015', 'P003', 'Mineral Water', 2, 1.50, 3.00), " + "('TXN016', 'P008', 'Kit Kat', 4, 2.50, 10.00), ('TXN016', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), ('TXN016', 'P004', 'Orange Juice', 1, 4.00, 4.00), " + "('TXN017', 'P007', 'Snickers', 5, 2.50, 12.50), ('TXN017', 'P010', 'Canned Tuna', 3, 5.50, 16.50), ('TXN017', 'P002', 'Pepsi', 3, 3.50, 10.50), " +
                     "('TXN018', 'P003', 'Mineral Water', 6, 1.50, 9.00), ('TXN018', 'P006', 'Cheetos', 2, 3.80, 7.60), ('TXN018', 'P009', 'Instant Noodles', 4, 2.20, 8.80), " + "('TXN019', 'P001', 'Coca Cola', 5, 3.50, 17.50), ('TXN019', 'P008', 'Kit Kat', 7, 2.50, 17.50), ('TXN019', 'P005', \"Lay's Chips\", 2, 4.50, 9.00), " +
@@ -168,6 +170,7 @@ public class dbHelper {
                     "('TXN056', 'P003', 'Mineral Water', 4, 1.50, 6.00), ('TXN056', 'P004', 'Orange Juice', 3, 4.00, 12.00), ('TXN056', 'P005', \"Lay's Chips\", 2, 4.50, 9.00), " + "('TXN057', 'P010', 'Canned Tuna', 3, 5.50, 16.50), ('TXN057', 'P007', 'Snickers', 5, 2.50, 12.50), ('TXN057', 'P002', 'Pepsi', 4, 3.50, 14.00), " +
                     "('TXN058', 'P008', 'Kit Kat', 4, 2.50, 10.00), ('TXN058', 'P001', 'Coca Cola', 3, 3.50, 10.50), ('TXN058', 'P006', 'Cheetos', 2, 3.80, 7.60), " + "('TXN059', 'P003', 'Mineral Water', 6, 1.50, 9.00), ('TXN059', 'P009', 'Instant Noodles', 7, 2.20, 15.40), ('TXN059', 'P004', 'Orange Juice', 4, 4.00, 16.00), " + "('TXN060', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), ('TXN060', 'P007', 'Snickers', 4, 2.50, 10.00), ('TXN060', 'P010', 'Canned Tuna', 2, 5.50, 11.00), " + "('TXN061', 'P002', 'Pepsi', 3, 3.50, 10.50), ('TXN061', 'P008', 'Kit Kat', 5, 2.50, 12.50), ('TXN061', 'P001', 'Coca Cola', 4, 3.50, 14.00), " +
                     "('TXN062', 'P006', 'Cheetos', 3, 3.80, 11.40), ('TXN062', 'P003', 'Mineral Water', 5, 1.50, 7.50), ('TXN062', 'P009', 'Instant Noodles', 6, 2.20, 13.20), " + "('TXN063', 'P007', 'Snickers', 4, 2.50, 10.00), ('TXN063', 'P004', 'Orange Juice', 2, 4.00, 8.00), ('TXN063', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), " + "('TXN064', 'P010', 'Canned Tuna', 5, 5.50, 27.50), ('TXN064', 'P001', 'Coca Cola', 6, 3.50, 21.00), ('TXN064', 'P002', 'Pepsi', 4, 3.50, 14.00)");
+            System.out.println("Transaction Items inserted.");
         }
     }
 }
