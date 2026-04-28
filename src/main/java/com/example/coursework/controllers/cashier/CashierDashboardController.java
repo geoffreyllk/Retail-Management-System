@@ -201,7 +201,7 @@ public class CashierDashboardController {
         card.setAlignment(Pos.CENTER);
 
         // if no stock, disable
-        if (product.getStock() <= 0) {
+        if ((product.getStock()-cart.getOrDefault(product, 0)) <= 0) {
             card.getStyleClass().add("out-of-stock");
             card.setDisable(true);
         } else {
@@ -212,16 +212,16 @@ public class CashierDashboardController {
         return card;
     }
 
-
     private void addToCart(Product product) {
         // real time validation
-        if (product.getStock() <= 0) {
+        if ((product.getStock()-cart.getOrDefault(product, 0)) <= 0) {
             AlertUtil.showError("Product out of stock!");
             return;
         }
 
         cart.put(product, cart.getOrDefault(product, 0) + 1);
         updateCartDisplay();
+        filterProducts();
     }
 
     private void updateCartDisplay() {
@@ -307,18 +307,20 @@ public class CashierDashboardController {
             AlertUtil.showError("Not enough stock! Available: " + product.getStock());
         }
         updateCartDisplay();
+        filterProducts();
     }
-
 
     private void removeFromCart(Product product) {
         cart.remove(product);
         updateCartDisplay();
+        filterProducts();
     }
 
     @FXML
     private void clearOrder() {
         cart.clear();
         updateCartDisplay();
+        filterProducts();
     }
 
     @FXML

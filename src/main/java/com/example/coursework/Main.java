@@ -23,7 +23,7 @@ public class Main extends Application {
 
             // --- INIT DB ----
             dbHelper db = new dbHelper(connection);
-            db.dropAndRedo();
+            db.initDatabase();
 
             // initialise cache (blueprints + session data)
             AppCache.initialize(connection);
