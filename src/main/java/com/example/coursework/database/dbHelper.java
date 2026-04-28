@@ -10,20 +10,21 @@ public class dbHelper {
         this.connection = connection;
     }
 
-//    // for development drop db
-//    public void dropAndRedo() {
-//        try (Statement statement = connection.createStatement()) {
-//            statement.executeUpdate("DROP TABLE IF EXISTS transaction_items");
-//            statement.executeUpdate("DROP TABLE IF EXISTS transactions");
-//            statement.executeUpdate("DROP TABLE IF EXISTS products");
-//            statement.executeUpdate("DROP TABLE IF EXISTS users");
-//
-//            initDatabase();
-//            // insertSampleData();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    // for development drop db
+    public void dropAndRedo() {
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate("DROP TABLE IF EXISTS transaction_items");
+            statement.executeUpdate("DROP TABLE IF EXISTS transactions");
+            statement.executeUpdate("DROP TABLE IF EXISTS products");
+            statement.executeUpdate("DROP TABLE IF EXISTS users");
+
+            initDatabase();
+            insertSampleTransactionsApril();
+            // insertSampleData();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     // -- init --
     public void initDatabase() {
@@ -171,6 +172,114 @@ public class dbHelper {
                     "('TXN058', 'P008', 'Kit Kat', 4, 2.50, 10.00), ('TXN058', 'P001', 'Coca Cola', 3, 3.50, 10.50), ('TXN058', 'P006', 'Cheetos', 2, 3.80, 7.60), " + "('TXN059', 'P003', 'Mineral Water', 6, 1.50, 9.00), ('TXN059', 'P009', 'Instant Noodles', 7, 2.20, 15.40), ('TXN059', 'P004', 'Orange Juice', 4, 4.00, 16.00), " + "('TXN060', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), ('TXN060', 'P007', 'Snickers', 4, 2.50, 10.00), ('TXN060', 'P010', 'Canned Tuna', 2, 5.50, 11.00), " + "('TXN061', 'P002', 'Pepsi', 3, 3.50, 10.50), ('TXN061', 'P008', 'Kit Kat', 5, 2.50, 12.50), ('TXN061', 'P001', 'Coca Cola', 4, 3.50, 14.00), " +
                     "('TXN062', 'P006', 'Cheetos', 3, 3.80, 11.40), ('TXN062', 'P003', 'Mineral Water', 5, 1.50, 7.50), ('TXN062', 'P009', 'Instant Noodles', 6, 2.20, 13.20), " + "('TXN063', 'P007', 'Snickers', 4, 2.50, 10.00), ('TXN063', 'P004', 'Orange Juice', 2, 4.00, 8.00), ('TXN063', 'P005', \"Lay's Chips\", 3, 4.50, 13.50), " + "('TXN064', 'P010', 'Canned Tuna', 5, 5.50, 27.50), ('TXN064', 'P001', 'Coca Cola', 6, 3.50, 21.00), ('TXN064', 'P002', 'Pepsi', 4, 3.50, 14.00)");
             System.out.println("Transaction Items inserted.");
+        }
+    }
+
+    private void insertSampleTransactionsApril() throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            // Transactions for April 22-27, 2026 (total ~RM950)
+            statement.executeUpdate("INSERT INTO transactions (transaction_id, cashier_username, transaction_date, total_amount, payment_method) VALUES \n" +
+                    "('TXN065', 'john', '2026-04-22 10:30:00', 87.50, 'Cash'),\n" +
+                    "('TXN066', 'jane', '2026-04-22 14:15:00', 124.80, 'Card'),\n" +
+                    "('TXN067', 'bob', '2026-04-22 17:45:00', 62.30, 'QR Pay'),\n" +
+                    "('TXN068', 'alice', '2026-04-23 09:30:00', 198.40, 'Cash'),\n" +
+                    "('TXN069', 'john', '2026-04-23 13:20:00', 55.90, 'Card'),\n" +
+                    "('TXN070', 'jane', '2026-04-23 16:50:00', 143.20, 'QR Pay'),\n" +
+                    "('TXN071', 'bob', '2026-04-24 11:00:00', 76.50, 'Cash'),\n" +
+                    "('TXN072', 'alice', '2026-04-24 15:30:00', 212.00, 'Card'),\n" +
+                    "('TXN073', 'john', '2026-04-24 18:15:00', 49.80, 'QR Pay'),\n" +
+                    "('TXN074', 'jane', '2026-04-25 08:45:00', 167.30, 'Cash'),\n" +
+                    "('TXN075', 'bob', '2026-04-25 12:30:00', 91.20, 'Card'),\n" +
+                    "('TXN076', 'alice', '2026-04-25 16:00:00', 58.40, 'QR Pay'),\n" +
+                    "('TXN077', 'john', '2026-04-26 10:15:00', 185.60, 'Cash'),\n" +
+                    "('TXN078', 'jane', '2026-04-26 14:45:00', 73.90, 'Card'),\n" +
+                    "('TXN079', 'bob', '2026-04-26 17:30:00', 136.50, 'QR Pay'),\n" +
+                    "('TXN080', 'alice', '2026-04-27 09:00:00', 94.20, 'Cash'),\n" +
+                    "('TXN081', 'john', '2026-04-27 13:15:00', 158.80, 'Card'),\n" +
+                    "('TXN082', 'jane', '2026-04-27 16:40:00', 67.50, 'QR Pay');");
+
+            // Transaction items
+            statement.executeUpdate("INSERT INTO transaction_items (transaction_id, product_id, product_name, quantity, price, subtotal) VALUES \n" +
+                    "('TXN065', 'P001', 'Coca Cola', 5, 3.50, 17.50),\n" +
+                    "('TXN065', 'P007', 'Snickers', 8, 2.50, 20.00),\n" +
+                    "('TXN065', 'P005', 'Lay\\'s Chips', 4, 4.50, 18.00),\n" +
+                    "('TXN065', 'P003', 'Mineral Water', 8, 1.50, 12.00),\n" +
+                    "('TXN065', 'P010', 'Canned Tuna', 2, 5.50, 11.00),\n" +
+                    "('TXN066', 'P002', 'Pepsi', 6, 3.50, 21.00),\n" +
+                    "('TXN066', 'P009', 'Instant Noodles', 12, 2.20, 26.40),\n" +
+                    "('TXN066', 'P008', 'Kit Kat', 10, 2.50, 25.00),\n" +
+                    "('TXN066', 'P004', 'Orange Juice', 5, 4.00, 20.00),\n" +
+                    "('TXN066', 'P003', 'Mineral Water', 15, 1.50, 22.50),\n" +
+                    "('TXN067', 'P006', 'Cheetos', 7, 3.80, 26.60),\n" +
+                    "('TXN067', 'P007', 'Snickers', 6, 2.50, 15.00),\n" +
+                    "('TXN067', 'P001', 'Coca Cola', 4, 3.50, 14.00),\n" +
+                    "('TXN067', 'P003', 'Mineral Water', 3, 1.50, 4.50),\n" +
+                    "('TXN068', 'P005', 'Lay\\'s Chips', 12, 4.50, 54.00),\n" +
+                    "('TXN068', 'P010', 'Canned Tuna', 8, 5.50, 44.00),\n" +
+                    "('TXN068', 'P007', 'Snickers', 15, 2.50, 37.50),\n" +
+                    "('TXN068', 'P002', 'Pepsi', 10, 3.50, 35.00),\n" +
+                    "('TXN068', 'P004', 'Orange Juice', 7, 4.00, 28.00),\n" +
+                    "('TXN069', 'P003', 'Mineral Water', 12, 1.50, 18.00),\n" +
+                    "('TXN069', 'P008', 'Kit Kat', 8, 2.50, 20.00),\n" +
+                    "('TXN069', 'P009', 'Instant Noodles', 6, 2.20, 13.20),\n" +
+                    "('TXN069', 'P001', 'Coca Cola', 1, 3.50, 3.50),\n" +
+                    "('TXN070', 'P007', 'Snickers', 14, 2.50, 35.00),\n" +
+                    "('TXN070', 'P005', 'Lay\\'s Chips', 9, 4.50, 40.50),\n" +
+                    "('TXN070', 'P010', 'Canned Tuna', 6, 5.50, 33.00),\n" +
+                    "('TXN070', 'P006', 'Cheetos', 5, 3.80, 19.00),\n" +
+                    "('TXN070', 'P003', 'Mineral Water', 10, 1.50, 15.00),\n" +
+                    "('TXN071', 'P002', 'Pepsi', 6, 3.50, 21.00),\n" +
+                    "('TXN071', 'P004', 'Orange Juice', 4, 4.00, 16.00),\n" +
+                    "('TXN071', 'P009', 'Instant Noodles', 10, 2.20, 22.00),\n" +
+                    "('TXN071', 'P008', 'Kit Kat', 5, 2.50, 12.50),\n" +
+                    "('TXN072', 'P001', 'Coca Cola', 12, 3.50, 42.00),\n" +
+                    "('TXN072', 'P005', 'Lay\\'s Chips', 14, 4.50, 63.00),\n" +
+                    "('TXN072', 'P007', 'Snickers', 18, 2.50, 45.00),\n" +
+                    "('TXN072', 'P010', 'Canned Tuna', 9, 5.50, 49.50),\n" +
+                    "('TXN072', 'P003', 'Mineral Water', 8, 1.50, 12.00),\n" +
+                    "('TXN073', 'P006', 'Cheetos', 6, 3.80, 22.80),\n" +
+                    "('TXN073', 'P009', 'Instant Noodles', 8, 2.20, 17.60),\n" +
+                    "('TXN073', 'P003', 'Mineral Water', 5, 1.50, 7.50),\n" +
+                    "('TXN074', 'P008', 'Kit Kat', 16, 2.50, 40.00),\n" +
+                    "('TXN074', 'P005', 'Lay\\'s Chips', 10, 4.50, 45.00),\n" +
+                    "('TXN074', 'P002', 'Pepsi', 12, 3.50, 42.00),\n" +
+                    "('TXN074', 'P004', 'Orange Juice', 6, 4.00, 24.00),\n" +
+                    "('TXN074', 'P003', 'Mineral Water', 10, 1.50, 15.00),\n" +
+                    "('TXN075', 'P001', 'Coca Cola', 7, 3.50, 24.50),\n" +
+                    "('TXN075', 'P007', 'Snickers', 9, 2.50, 22.50),\n" +
+                    "('TXN075', 'P009', 'Instant Noodles', 14, 2.20, 30.80),\n" +
+                    "('TXN075', 'P010', 'Canned Tuna', 2, 5.50, 11.00),\n" +
+                    "('TXN076', 'P003', 'Mineral Water', 15, 1.50, 22.50),\n" +
+                    "('TXN076', 'P006', 'Cheetos', 5, 3.80, 19.00),\n" +
+                    "('TXN076', 'P008', 'Kit Kat', 6, 2.50, 15.00),\n" +
+                    "('TXN077', 'P005', 'Lay\\'s Chips', 13, 4.50, 58.50),\n" +
+                    "('TXN077', 'P002', 'Pepsi', 15, 3.50, 52.50),\n" +
+                    "('TXN077', 'P007', 'Snickers', 12, 2.50, 30.00),\n" +
+                    "('TXN077', 'P004', 'Orange Juice', 8, 4.00, 32.00),\n" +
+                    "('TXN077', 'P003', 'Mineral Water', 8, 1.50, 12.00),\n" +
+                    "('TXN078', 'P009', 'Instant Noodles', 10, 2.20, 22.00),\n" +
+                    "('TXN078', 'P001', 'Coca Cola', 5, 3.50, 17.50),\n" +
+                    "('TXN078', 'P006', 'Cheetos', 6, 3.80, 22.80),\n" +
+                    "('TXN078', 'P008', 'Kit Kat', 4, 2.50, 10.00),\n" +
+                    "('TXN079', 'P010', 'Canned Tuna', 7, 5.50, 38.50),\n" +
+                    "('TXN079', 'P007', 'Snickers', 10, 2.50, 25.00),\n" +
+                    "('TXN079', 'P005', 'Lay\\'s Chips', 8, 4.50, 36.00),\n" +
+                    "('TXN079', 'P002', 'Pepsi', 6, 3.50, 21.00),\n" +
+                    "('TXN079', 'P003', 'Mineral Water', 10, 1.50, 15.00),\n" +
+                    "('TXN080', 'P001', 'Coca Cola', 8, 3.50, 28.00),\n" +
+                    "('TXN080', 'P008', 'Kit Kat', 10, 2.50, 25.00),\n" +
+                    "('TXN080', 'P009', 'Instant Noodles', 12, 2.20, 26.40),\n" +
+                    "('TXN080', 'P004', 'Orange Juice', 3, 4.00, 12.00),\n" +
+                    "('TXN081', 'P005', 'Lay\\'s Chips', 11, 4.50, 49.50),\n" +
+                    "('TXN081', 'P010', 'Canned Tuna', 9, 5.50, 49.50),\n" +
+                    "('TXN081', 'P007', 'Snickers', 13, 2.50, 32.50),\n" +
+                    "('TXN081', 'P003', 'Mineral Water', 12, 1.50, 18.00),\n" +
+                    "('TXN082', 'P002', 'Pepsi', 6, 3.50, 21.00),\n" +
+                    "('TXN082', 'P006', 'Cheetos', 5, 3.80, 19.00),\n" +
+                    "('TXN082', 'P009', 'Instant Noodles', 8, 2.20, 17.60),\n" +
+                    "('TXN082', 'P003', 'Mineral Water', 6, 1.50, 9.00);");
+
+            System.out.println("Sample transactions and items inserted (April 22-27, 2026)");
         }
     }
 }

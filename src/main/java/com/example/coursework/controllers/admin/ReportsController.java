@@ -10,8 +10,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
 
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ReportsController {
 
@@ -77,12 +80,12 @@ public class ReportsController {
     private void updateChartAndStats(String dateRange) {
         if (dateRange == null) dateRange = "Last 30 Days";
 
-        // Get data from DB
+        // get data from DB
         double totalRevenue = itemsDB.getTotalRevenue(dateRange);
         int totalTransactions = itemsDB.getTotalTransactions(dateRange);
         int totalItemsSold = itemsDB.getTotalItemsSold(dateRange);
 
-        // Update stat cards with dynamic currency
+        // update stat cards with currency from config
         totalRevenueLabel.setText(String.format("%s%.2f", currency, totalRevenue));
         transactionlabel.setText(String.valueOf(totalTransactions));
         averageTransactionLabel.setText(String.format("%s%.2f", currency, totalTransactions > 0 ? totalRevenue / totalTransactions : 0));
@@ -154,9 +157,14 @@ public class ReportsController {
 
             case "Last 7 Days":
                 String[] parts7 = rawLabel.split("-");
+                int year7 = Integer.parseInt(parts7[0]);
                 int month7 = Integer.parseInt(parts7[1]);
                 int day7 = Integer.parseInt(parts7[2]);
-                return weekdays[(day7 % 7)] + " " + day7 + " " + months[month7 - 1];
+
+                LocalDate date = LocalDate.of(year7, month7, day7);
+                String weekday = date.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+
+                return weekday + " " + day7 + " " + months[month7 - 1];
 
             case "Last 30 Days":
                 String[] parts30 = rawLabel.split("-");

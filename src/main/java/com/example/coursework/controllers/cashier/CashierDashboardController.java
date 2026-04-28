@@ -212,6 +212,7 @@ public class CashierDashboardController {
         return card;
     }
 
+
     private void addToCart(Product product) {
         // real time validation
         if (product.getStock() <= 0) {
@@ -307,6 +308,7 @@ public class CashierDashboardController {
         }
         updateCartDisplay();
     }
+
 
     private void removeFromCart(Product product) {
         cart.remove(product);

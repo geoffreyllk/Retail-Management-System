@@ -196,14 +196,14 @@ public class AdminLayoutController {
 
         if (AlertUtil.showConfirmation("Logout","Are you sure you want to logout?", "You will be redirected to the login screen.")) {
             try {
-                // Load login screen
+                // load login screen
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/coursework/fxml/LoginScreen.fxml"));
                 Parent root = loader.load();
 
-                // Get current stage
+                // get current stage
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                // Set new scene
+                // set new scene
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.setTitle("Login | Retail Management System");

@@ -40,7 +40,7 @@ public class Transactions {
         this.items = items != null ? new ArrayList<>(items) : new ArrayList<>();
     }
 
-    // Constructor for NEW transaction - generates ID and sets it on items
+    // Constructor for new transaction - generates ID and sets it on items
     public Transactions(String cashierUsername, String paymentMethod, List<TransactionItems> items, double totalAmount) {
         this(generateTransactionId(), cashierUsername, LocalDateTime.now(), totalAmount, paymentMethod, items);
 
@@ -70,7 +70,6 @@ public class Transactions {
         return transactionDate;
     }
 
-    // In Transactions model, add this method
     public String getFormattedTransactionDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return transactionDate.format(formatter);

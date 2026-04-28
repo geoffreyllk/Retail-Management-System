@@ -69,6 +69,7 @@ public class InventoryController {
     public void initialize() {
         setupTableColumns();
         setupFilters();
+        setupRealTimeFilters();
         loadCategoryDropdowns();
         searchProducts();
         priceValidation();
@@ -82,6 +83,12 @@ public class InventoryController {
                 }
             }
         });
+    }
+
+    private void setupRealTimeFilters() {
+        searchField.textProperty().addListener((obs, oldVal, newVal) -> searchProducts());
+        categoryFilter.valueProperty().addListener((obs, oldVal, newVal) -> searchProducts());
+        stockFilter.valueProperty().addListener((obs, oldVal, newVal) -> searchProducts());
     }
 
     private void loadCategoryDropdowns() {
@@ -271,7 +278,7 @@ public class InventoryController {
         Optional<ButtonType> result = confirm.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             if (productDB.deleteProduct(selectedProduct.getProductId())) {
-                // Delete associated image
+                // delete image
                 ImageHelper.deleteProductImage(selectedProduct.getName(), selectedProduct.getCategory());
                 AlertUtil.showSuccess("Product deleted successfully!");
                 hideOverlay();

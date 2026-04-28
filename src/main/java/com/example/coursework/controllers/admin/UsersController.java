@@ -46,7 +46,7 @@ public class UsersController {
         setupTableColumns();
         setupFilters();
         setupValidation();
-        setupRealTimeFilters();  // ADD THIS - enables real-time filtering
+        setupRealTimeFilters();
         loadUsers();
 
         userTable.setOnMouseClicked((MouseEvent event) -> {
@@ -76,7 +76,6 @@ public class UsersController {
         editUserRole.setItems(FXCollections.observableArrayList("admin", "cashier"));
     }
 
-    // ADD THIS METHOD - enables real-time filtering
     private void setupRealTimeFilters() {
         searchField.textProperty().addListener((obs, oldVal, newVal) -> loadUsers());
         roleFilter.valueProperty().addListener((obs, oldVal, newVal) -> loadUsers());

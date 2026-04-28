@@ -124,7 +124,8 @@ public class UserDB extends dbHelper{
         return getUsers(query.toString(), params.toArray(new String[0]));
     }
 
-    // Update user
+    // UPDATE users
+
     // Update only role
     public boolean updateUserRole(int id, String role) {
         String sql = "UPDATE users SET role = ? WHERE id = ?";
@@ -151,7 +152,7 @@ public class UserDB extends dbHelper{
         }
     }
 
-    // Delete user
+    // DELETE user
     public boolean deleteUser(int id) {
         String sql = "DELETE FROM users WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {

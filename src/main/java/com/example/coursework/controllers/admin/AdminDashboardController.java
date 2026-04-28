@@ -218,7 +218,7 @@ public class AdminDashboardController {
             nameLabels[i].getParent().setVisible(false);
         }
 
-        // Show actual data
+        // show data
         for (int i = 0; i < topProducts.size() && i < 3; i++) {
             TransactionItemsDB.TopProduct product = topProducts.get(i);
             nameLabels[i].setText(product.getName());
@@ -249,7 +249,7 @@ public class AdminDashboardController {
         weeklySalesChart.getData().clear();
         weeklySalesChart.getData().add(series);
 
-        // Style the chart
+        // style chart
         weeklySalesChart.setAnimated(true);
         weeklySalesChart.setLegendVisible(false);
         weeklySalesChart.setCategoryGap(18);

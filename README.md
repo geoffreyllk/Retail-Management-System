@@ -1,13 +1,13 @@
 # Retail Management System
 
-A complete desktop application for managing retail store operations, including sales processing, inventory management, transaction tracking, and reporting.
+A complete application for managing retail store operations, including sales processing, inventory management, transaction tracking, and reporting.
 
 ## How to Run
 
 1. Open project in IDE
 2. Run `Main.java`
-3. Click **"Insert Sample Data"** button on login screen (first time only)
-4. Login with credentials below
+3. Click the **"Insert Sample Data"** button on login screen (first time only)
+4. Login with credentials below:
 
 ## Sample Login Credentials
 
@@ -15,14 +15,9 @@ A complete desktop application for managing retail store operations, including s
 - Username: admin
 - Password: admin123
 
-**Cashier**
+**Normal User (Cashier)**
 - Username: cashier
 - Password: cashier123
-
-## Configuration
-
-Edit `config.properties` in project root 
-or, login as admin and go to settings page.
 
 ## Project Structure
 
@@ -34,7 +29,7 @@ or, login as admin and go to settings page.
 - **Reports** - Analytical graphs and charts on store performance
 - **Settings** - Configure store details (name, currency, tax rate, categories, payment methods)
 
-### Cashier
+### Normal User (Cashier)
 - **Dashboard** - Process customer sales, manage cart, accept payments, and print receipts
 
 > **Note:** To edit or delete items (e.g., products, categories), click on the table row of the item to open  the edit overlay.
